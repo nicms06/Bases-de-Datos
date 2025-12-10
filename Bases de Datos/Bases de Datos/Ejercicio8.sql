@@ -1,0 +1,24 @@
+CREATE DATABASE Ejercicio8;
+GO
+USE Ejercicio8;
+GO
+
+CREATE TABLE Alumno(
+	DNI CHAR(9) CONSTRAINT PK_Alumno PRIMARY KEY,
+	NºEquipo SMALLINT NOT NULL
+)
+
+CREATE TABLE Ordenador(
+	NºEquipo SMALLINT CONSTRAINT PK_Ordenador PRIMARY KEY,
+	COD_Aula INT NOT NULL
+)
+
+CREATE TABLE Aula(
+	COD_Aula INT CONSTRAINT PK_Aula PRIMARY KEY,
+)
+
+CREATE TABLE AlumnoOrdenador(
+	NºEquipo SMALLINT CONSTRAINT PK_AlumnoOrdenador PRIMARY KEY,
+	NºEquipo_Ordenador SMALLINT CONSTRAINT FK_AlumnoOrdenador_Ordenador_NºEquipo FOREIGN KEY REFERENCES Ordenador (NºEquipo) ON UPDATE No Action ON DELETE No Action,
+	DNI_Alumno CHAR(9) CONSTRAINT FK_AlumnoOrdenador_Alumno_DNIAlumno FOREIGN KEY REFERENCES Alumno (DNI) ON UPDATE No Action ON DELETE No Action,
+)
