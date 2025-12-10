@@ -1,0 +1,6 @@
+CREATE DATABASE Ejercicio4;
+GO
+USE Ejercicio5;
+GO
+
+CREATE TABLE 
